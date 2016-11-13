@@ -1,0 +1,9 @@
+
+<% include ./layouts/header.ejs %>
+<% include ./layouts/nav.ejs %>
+<div class="well col-md-6 col-md-offset-3" style="margin-top: 20px">
+  <% for (var i=0; i < posts.length; i++){%>
+   <h3><%= posts[i].title%></h3>
+   <p><%= posts[i].message%></p>
+  <% }; %>
+</div>

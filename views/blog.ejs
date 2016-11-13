@@ -1,0 +1,22 @@
+<% include ./layouts/header.ejs %>
+<% include ./layouts/nav.ejs %>
+<div class="container">
+  <form class="col-md-8 col-md-offset-2" autocomplete="on" action="/sent" method="post">
+
+    <div class="form-group"> <!-- Subject field -->
+      <label class="control-label " for="title">Title</label>
+      <input class="form-control" required id="title" name="title" type="text"/>
+    </div>
+    
+    <div class="form-group"> <!-- Message field -->
+      <label class="control-label " for="message">Message</label>
+      <textarea class="form-control" required cols="40" id="message" name="message" rows="10"></textarea>
+    </div>
+    
+    <div class="form-group">
+      <input class="btn btn-primary " name="submit" type="submit">
+    </div>
+  
+  </form>    
+</div>
+           

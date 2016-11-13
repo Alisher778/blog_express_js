@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ./layouts/header.ejs %>
+  </head>
+  <body>
+  
+     <% include ./layouts/nav.ejs%>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Welcome To Best Blogs!</h1> 
+        <p>You can post anything (of course about Codding :)  ), and help your fellow students answering for their question, chanlanges. It is great practice!</p> 
+      </div>
+
+        <% for (var i=0; i < posts.length; i++){%>
+         <h3><a href=""><%= posts[i].title%></h3>
+         <p><%%></p>
+        <% }; %>
+
+    </div>
+   
+  </body>
+</html>
