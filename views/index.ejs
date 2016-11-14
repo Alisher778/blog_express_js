@@ -7,14 +7,15 @@
   
      <% include ./layouts/nav.ejs%>
     <div class="container">
-      <div class="jumbotron">
+      <div class="jumbotron" style="color: white;
+    background: url(https://s-media-cache-ak0.pinimg.com/736x/44/a2/3f/44a23fcdf80f994ecd6bc9d25723f075.jpg) no-repeat;
+    background-size: cover;">
         <h1>Welcome To Best Blogs!</h1> 
-        <p>You can post anything (of course about Codding :)  ), and help your fellow students answering for their question, chanlanges. It is great practice!</p> 
+        <p>You can post anything (of course about Codding <large style="color: yellow; font-size: 28px"> ☺ </large>), and help your fellow students answering for their question, chanlanges. It is great practice!</p> 
       </div>
 
         <% for (var i=0; i < posts.length; i++){%>
-         <h3><a href=""><%= posts[i].title%></h3>
-         <p><%%></p>
+         <h3><a href="/posts/<%= posts[i].title%>"><%= posts[i].title%></a></h3>
         <% }; %>
 
     </div>
