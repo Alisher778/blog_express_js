@@ -40,7 +40,7 @@ app.get('/posts/:title', function(req, res){
   var title = req.params.title;
   var body = posts[title];
   console.log(title);
-  res.render('queryPage', {posts});
+  res.redirect('/blog');
 })
 
 
