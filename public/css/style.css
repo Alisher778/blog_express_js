@@ -1,0 +1,29 @@
+a{
+  text-decoration: none
+}
+
+
+/* Show Page ------*/
+#toggleBtn{
+  float: right;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.toggleEl{
+  width: 75px;
+  top: 20px;
+  height: auto;
+  text-align: left;
+  position: absolute;
+  padding: 9px 13px;
+  border-radius: 4px;
+  right: -14px;
+  background-color: rgba(166, 172, 167, 0.28);
+  display: none;
+  list-style: none;
+}
+.toggleEl li{
+  margin: 4px 0;
+}

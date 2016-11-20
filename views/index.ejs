@@ -4,23 +4,23 @@
     <% include ./layouts/header.ejs %>
   </head>
   <body>
-  
-     <% include ./layouts/nav.ejs%>
+    
+    <% include ./layouts/nav.ejs%>
     <div class="container">
       <div class="jumbotron" style="color: white; background: url('public/images/img.jpg') no-repeat; background-size: cover;">
-        <h1>Welcome To Best Blogs!</h1> 
-        <p>You can post anything (of course about Codding <large style="color: yellow; font-size: 28px"> ☺ </large>), and help your fellow students answering for their question, chanlanges. It is great practice!</p> 
+        <h1>Welcome To Best Blogs!</h1>
+        <p>You can post anything (of course about Codding <large style="color: yellow; font-size: 28px"> ☺ </large>), and help your fellow students answering for their question, chanlanges. It is great practice!</p>
       </div>
       <br>
       <h2 style="text-align:center">Recent Posts</h2>
       <br>
       <br>
-        <% for (var i=0; i < posts.length; i++){%>
-         <h3    style="text-align:center"><a href="/posts/'<%= posts[i].title%>'"><%= posts[i].title%></a></h3>
-           <hr>
-        <% }; %>
-
+      
+      <% post.forEach(function(postData){ %>
+      <h3><a href="/post/<%= postData.id%>"><%= postData.title%></a></h3>
+      <p><%= postData.message%></p>
+      <% }) %>
     </div>
-   
+    
   </body>
 </html>

@@ -3,21 +3,15 @@
 <% include ./layouts/nav.ejs %>
 
 <div class="well col-md-8 col-md-offset-2" style="margin-top: 20px">
-<button class="btn btn-primary" type="button">
-  Total number of Posts <span class="badge"><%=posts.length%></span>
-</button><br><br>
-  <% for (var i=0; i < posts.length; i++){%>
-  <div class="panel panel-primary">
-    
-    <div class="panel-heading">
-      <span class="panel-title"><%= posts[i].title%></span><span style="float:right;color: #c4ff00;"><%= posts[
-      i].timestamp.toString().split(" ").splice(1,4).join(" ") %> </span> 
-    </div>
+<span class="glyphicon glyphicon-option-vertical" id="toggleBtn" aria-hidden="true">
+  <ul class="toggleEl">
+    <li><a href="/post/edit/<%= post.id %>">Edit</a></li>
+    <li><a href="/post/destroy/<%= post.id %>">Delete</a></li>
+  </ul>
+</span>
+  <h2><%= post.title %></h2>
+  <p><%= post.message %></p>
 
-    <div class="panel-body">
-      <%= posts[i].message%>
-    </div>
-  
-  </div>
-  <% }; %>
+  <a href="/" class="btn-sm btn-info">Go Back</a>
 </div>
+
