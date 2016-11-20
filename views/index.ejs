@@ -15,12 +15,17 @@
       <h2 style="text-align:center">Recent Posts</h2>
       <br>
       <br>
-      
+      <% if (post.length == 0){%>
+        <div class="alert alert-success" role="alert" style="text-align:center">
+          <h4 >Hey! There is no any Posts yet. Be the 1st to create a Post</h4>
+          <a href="/create" class="btn-sm btn-primary">New Post</a>
+        </div>
+      <% }%>
       <% post.forEach(function(postData){ %>
       <h3><a href="/post/<%= postData.id%>"><%= postData.title%></a></h3>
       <p><%= postData.message%></p>
       <% }) %>
     </div>
-    
+
   </body>
 </html>

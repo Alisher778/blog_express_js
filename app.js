@@ -48,7 +48,7 @@ app.get('/create', function(req, res){
 //Post a post
 
 app.post('/sent', function(req, res){
-  sequelize.sync().then(function(){
+  sequelize.sync({force: true}).then(function(){
     return Post.create({
       title: req.body.title,
       message: req.body.message
