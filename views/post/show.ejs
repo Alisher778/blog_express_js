@@ -1,0 +1,17 @@
+
+<% include ../layouts/header.ejs %>
+<% include ../layouts/nav.ejs %>
+
+<div class="well col-md-8 col-md-offset-2" style="margin-top: 20px">
+<span class="glyphicon glyphicon-option-vertical" id="toggleBtn" aria-hidden="true">
+  <ul class="toggleEl">
+    <li><a href="/post/edit/<%= post.id %>">Edit</a></li>
+    <li><a href="/post/destroy/<%= post.id %>">Delete</a></li>
+  </ul>
+</span>
+  <h2><%= post.title %></h2>
+  <p><%- post.message %></p>
+
+  <a href="/" class="btn-sm btn-info">Go Back</a>
+</div>
+

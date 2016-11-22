@@ -1,7 +1,15 @@
 a{
   text-decoration: none
 }
+/* New PAge*/
 
+#submitBtn{
+    width: 160px;
+    height: 42px;
+    position: relative;
+    left: 39%;
+    top: 16px;
+}
 
 /* Show Page ------*/
 #toggleBtn{
@@ -23,7 +31,24 @@ a{
   background-color: rgba(166, 172, 167, 0.28);
   display: none;
   list-style: none;
+  z-index: 1;
 }
 .toggleEl li{
   margin: 4px 0;
+}
+
+
+/* Conatct PAge*/
+.jumbotron {
+background: #358CCE;
+color: #FFF;
+border-radius: 0px;
+}
+.jumbotron-sm { padding-top: 24px;
+padding-bottom: 24px; }
+.jumbotron small {
+color: #FFF;
+}
+.h1 small {
+font-size: 24px;
 }

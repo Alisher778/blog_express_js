@@ -19,10 +19,6 @@ var Post = sequelize.define('post',{
 
 
 
-
-
-
-
 app.set('view engine', 'ejs');
 // app.set('views', __dirname + '/template'); // IF you want to change views into another folder
 app.use('/public', express.static(__dirname + '/public'));
@@ -31,7 +27,7 @@ app.use('/public', express.static(__dirname + '/public'));
 //Root path
 app.get('/', function(req, res){
   Post.findAll().then(function(posts){
-    res.render('index', {post:posts});
+    res.render('post/index', {post:posts});
   });
 });
 
@@ -41,19 +37,19 @@ app.get('/create', function(req, res){
     title: Sequelize.STRING,
     message: Sequelize.TEXT
   });
-  res.render('new');
+  res.render('post/new');
 })
 
 
 //Post a post
 
 app.post('/sent', function(req, res){
-  sequelize.sync({force: true}).then(function(){
+  sequelize.sync().then(function(){
     return Post.create({
       title: req.body.title,
       message: req.body.message
     }).then(function(posts){
-      res.render('show', {post: posts});
+      res.render('post/show', {post: posts});
     });
   });
 });
@@ -61,7 +57,7 @@ app.post('/sent', function(req, res){
 //Link for show page
 app.get('/post/:id', function(req, res){
     Post.findById(req.params.id).then(function(posts){
-      res.render('show', {post: posts});
+      res.render('post/show', {post: posts});
     });
 });
 
@@ -69,7 +65,7 @@ app.get('/post/:id', function(req, res){
 //Edit page and ation
 app.get('/post/edit/:id', function(req, res){
     Post.findById(req.params.id).then(function(posts){
-      res.render('edit', {post: posts});
+      res.render('post/edit', {post: posts});
     });
 });
 
@@ -95,6 +91,20 @@ app.get('/post/destroy/:id', function(req, res){
     res.redirect('/');
   });
 });
+
+
+
+//////////Contact page 
+
+app.get('/contact', function(req, res){
+  res.render('pages/contact');
+});
+
+//send
+app.post('/email', function(req, res){
+
+})
+
 
 app.listen(3000, function(){
   console.log('Application is running on localhost:3000')

@@ -1,0 +1,26 @@
+<% include ../layouts/header.ejs %>
+<% include ../layouts/nav.ejs %>
+<h1 align="center">Creat Your Post</h1>
+<div class="container" style="margin-top: 70px">
+  <div class="row">
+    <form class="col-md-10 col-md-offset-1" autocomplete="on" action="/sent" method="post" style="background-color: #00BCD4;
+    padding: 30px;
+    border-radius: 5px;"> 
+
+      <div class="form-group"> <!-- Subject field -->
+        <label class="control-label " for="title">Title</label>
+        <input class="form-control" style="border: 1px solid" required id="title" name="title" type="text" />
+      </div>
+      
+      <div class="form-group"> <!-- Message field -->
+        <label class="control-label " for="message">Message</label>
+        <textarea class="form-control" cols="60" id="message" name="message" rows="10" style="border: 1px solid"></textarea>
+      </div>
+    
+      <div class="form-group">
+        <input class="btn btn-primary " type="submit" id="submitBtn">
+      </div>
+    </div>
+  </form>    
+</div>
+           
