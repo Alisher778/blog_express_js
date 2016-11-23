@@ -3,13 +3,21 @@ var app = express();
 var Sequelize = require('sequelize');
 var database = 'sqlite://database.sqlite3';
 var sequelize = new Sequelize(database);
+var session = require('express-session');
+var cookieParser = require('cookie-parser');
+var flash = require('connect-flash');
+
+
+app.use(cookieParser('secret'));
+app.use(session({cookie: { maxAge: 60000 }}));
+app.use(flash());
 
 app.locals.moment = require('moment');
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 3000));
 // ---------Defining database --------
 
 var Post = sequelize.define('post',{
