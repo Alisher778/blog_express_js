@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
+app.set('port', (process.env.PORT || 5000));
 // ---------Defining database --------
 
 var Post = sequelize.define('post',{
@@ -106,7 +106,8 @@ app.post('/email', function(req, res){
 })
 
 
-app.listen(3000, function(){
-  console.log('Application is running on localhost:3000')
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
 });
+
 
