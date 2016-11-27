@@ -3,8 +3,8 @@ var app = express();
 
 var pg = require('pg');
 // For file uploading
-var multer = require('multer');
-var upload = multer({dest: 'uploads/'});
+// var multer = require('multer');
+// var upload = multer({dest: 'uploads/'});
 
 var Sequelize = require('sequelize');
 var database = 'sqlite://database.sqlite3';
