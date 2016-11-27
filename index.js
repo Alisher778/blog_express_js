@@ -1,8 +1,15 @@
 var express = require('express');
 var app = express();
+
+var pg = require('pg');
+// For file uploading
+var multer = require('multer');
+var upload = multer({dest: 'uploads/'});
+
 var Sequelize = require('sequelize');
 var database = 'sqlite://database.sqlite3';
-var sequelize = new Sequelize(database);
+var sequelize = new Sequelize(process.env.DATABASE_URL);
+
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
 var flash = require('connect-flash');
