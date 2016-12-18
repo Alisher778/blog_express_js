@@ -1,6 +1,46 @@
 <% include ../layouts/header.ejs %>
 <% include ../layouts/nav.ejs %>
+<div class="col-md-10 col-md-offset-1">
+  <div align="center">
+    <h2>Sign Up!</h2>
+    <h4>It takes only 2 mins</h4>
+  </div>
+  <br>
+  <br>
+  <form action="/user/sign_up" method="post" enctype="multipart/form-data">
+    <div class="container">
+      <div class="col-md-6 col-md-offset-2">
+        <div class="form-group"> <!-- Name field -->
+          <label class="control-label " for="name">Name</label>
+          <input class="form-control" id="name" name="name" type="text"/>
+        </div>
+  
+        <div class="form-group"> <!-- Email field -->
+          <label class="control-label requiredField" for="email">Email<span class="asteriskField">*</span></label>
+          <input class="form-control" id="email" name="email" type="text"/>
+        </div>
+        
+        <div class="form-group"> <!-- Subject field -->
+          <label class="control-label " for="subject">Password</label>
+          <input class="form-control" id="subject" name="password" type="password"/>
+        </div>
+        
+        <div class="form-group"> <!-- Message field -->
+          <label class="control-label " for="message">Bio</label>
+          <textarea class="form-control" cols="40" id="message" name="bio" rows="10"></textarea>
+        </div>
 
-
+        <div class="form-group"> <!-- Message field -->
+          <label class="control-label " for="message">Profile Image</label>
+          <input class="form-control" type="file" name="image"  />
+        </div>
+        
+        <div class="form-group">
+          <button class="btn btn-primary " name="submit" type="submit">SIGN UP</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
 
 <% include ../layouts/footer.ejs %>

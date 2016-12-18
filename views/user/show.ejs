@@ -1,0 +1,14 @@
+<% include ../layouts/header.ejs %>
+<% include ../layouts/nav.ejs %>
+  <div class="container">
+    <h1>Welcome <%= user.name %>! This is your profile.</h1>
+    
+    <div class="col-md-6 col-md-offset-2">
+      <h4>Name: <%= user.name %></h4>
+      <h4>Email: <%= user.email %></h4>
+      <h4>Password: <input type="password" value="<%= user.password %>" style="border: 0" disabled id="password">
+      <small><input type="checkbox" name="show" id="check"> Show Your password</small></h4>
+      <p>Bio: <%- user.bio %></p>
+    </div>
+  </div>
+<% include ../layouts/footer.ejs %>

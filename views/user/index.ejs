@@ -1,0 +1,9 @@
+<% include ../layouts/header.ejs %>
+<% include ../layouts/nav.ejs %>
+  
+  <% user.forEach(function(user){ %>
+    <p><%= user.length%></p>
+    <a href="/user/<%= user.id %>"><%= user.name %></a><a href="/user/destroy/<%= user.id %>">Delete</a>
+  <% })%>
+
+<% include ../layouts/footer.ejs %>
