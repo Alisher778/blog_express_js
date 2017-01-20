@@ -1,26 +1,28 @@
 var express = require('express');
 var app = express();
 var fs = require('fs');
-
-
+var bodyParser = require('body-parser');
+var session = require('express-session');
+var Sequelize = require('sequelize');
+var databaseURL = 'sqlite://database.sqlite3';
+var sequelize = new Sequelize(process.env.DATABASE_URL || databaseURL);
 // For file uploading
 var multer = require('multer');
 var upload = multer({dest: './public/uploads/'});
+var nodemailer = require('nodemailer');
+var smtpTransport = require('nodemailer-smtp-transport');
+var path = require('path');
 
-var session = require('express-session');
 app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: true,
   cookie: { secure: true }
 }))
-var Sequelize = require('sequelize');
-var databaseURL = 'sqlite://database.sqlite3';
-var sequelize = new Sequelize(process.env.DATABASE_URL || databaseURL);
+
 
 
 app.locals.moment = require('moment');
-var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -85,7 +87,6 @@ app.get('/post/edit/:id', function(req, res){
 });
 
 app.post('/post/update/:id', function(req, res){
-  console.log(req.body);
   return Post.update({
     title: req.body.title,
     message: req.body.message },
@@ -95,7 +96,6 @@ app.post('/post/update/:id', function(req, res){
       }
     }).then(function(){
       res.redirect('/');
-      console.log(req.body);
     })
 })
 
@@ -119,10 +119,43 @@ app.get('/contact', function(req, res){
   res.render('pages/contact');
 });
 
+
+
 //send
 app.post('/email', function(req, res){
+    
+var body = req.body;
 
-})
+var options = {
+      service: 'gmail',
+      auth: {
+        user: process.env.GMAIL,
+        pass: process.env.GMAILPASSWORD
+      }
+    };
+
+  var transporter = nodemailer.createTransport(smtpTransport(options));
+
+    
+  var mailOptions = {
+    sender: `${body.name} <${body.emails}>`,
+    to: `${body.to}`, 
+    subject: `${body.subject}`,
+    replay: `${body.emails}`,
+    text: `${body.message}`,
+    html: `${body.emails}${body.message}`
+  }
+  console.log(body.emails);
+  // send mail with defined transport object
+  transporter.sendMail(mailOptions, function(error){
+      if(error){
+          console.log(error);
+      }else{
+        console.log('Message sent');
+        res.redirect('/');
+      }
+  });
+});
 
 
 

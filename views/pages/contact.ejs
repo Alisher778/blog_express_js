@@ -14,13 +14,13 @@
   <div class="row">
   <div class="col-md-7 col-md-offset-1">
     <div class="well well-sm">
-      <form action="/email" method="post">
+      <form action="/email" method="POST" novalidate>
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
               <label for="name">
               Name</label>
-              <input type="text" class="form-control" id="name" placeholder="Enter name" required="required">
+              <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" name="name">
             </div>
             <div class="form-group">
               <label for="email">
@@ -28,16 +28,16 @@
               <div class="input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
               </span>
-              <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" required="required"></div>
+              <input type="email" name="emails" class="form-control" id="email" placeholder="Enter email" required="required"></div>
             </div>
             <div class="form-group">
               <label for="subject">
               Subject</label>
               <select id="subject" name="subject" class="form-control" required="required">
                 <option value="na" selected="">Choose One:</option>
-                <option value="service">General Customer Service</option>
-                <option value="suggestions">Suggestions</option>
-                <option value="product">Product Support</option>
+                <option value="General Customer Service">General Customer Service</option>
+                <option value="Suggestions">Suggestions</option>
+                <option value="Help">Product Support</option>
               </select>
             </div>
           </div>
@@ -49,8 +49,7 @@
             </div>
           </div>
           <div class="col-md-12">
-            <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
-            Send Message</button>
+            <input type="submit" class="btn btn-primary pull-right" id="btnContactUs">
           </div>
         </div>
       </form>

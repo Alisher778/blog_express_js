@@ -23,5 +23,8 @@
     "sendgrid": "^4.7.1",
     "sequelize": "^3.27.0",
     "sqlite3": "^3.1.8"
+  },
+  "devDependencies": {
+    "sqlite3": "^3.1.8"
   }
 }
